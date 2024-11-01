@@ -2,7 +2,17 @@ import React from "react";
 import { CiStar } from "react-icons/ci";
 import { Link } from "react-router-dom";
 export default function Book({ book }) {
-  const { bookName, bookId, author, image, tags, category, rating } = book;
+  const {
+    bookName,
+    bookId,
+    author,
+    image,
+    tags,
+    category,
+    rating,
+    yearOfPublishing,
+    totalPages,
+  } = book;
   return (
     <Link to={`/book/${bookId}`}>
       <div className="card bg-base-100 shadow-xl p-6 border-2">
@@ -23,7 +33,7 @@ export default function Book({ book }) {
           <div className="card-actions mt-3 justify-between ">
             <div>{category}</div>
             <div className="flex items-center">
-              {rating}
+              {rating},{yearOfPublishing}, {totalPages}
               <CiStar className="text-xl"></CiStar>
             </div>
           </div>
