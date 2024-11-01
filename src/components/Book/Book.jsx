@@ -14,7 +14,7 @@ export default function Book({ book }) {
     totalPages,
   } = book;
   return (
-    <Link to={`/book/${bookId}`}>
+    <Link to={`/${bookId}`}>
       <div className="card bg-base-100 shadow-xl p-6 border-2">
         <figure className="bg-[#F3F3F3] py-6">
           <img className="h-[138px]" src={image} alt={bookName} />

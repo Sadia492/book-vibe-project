@@ -9,11 +9,13 @@ import Home from "./components/Home/Home.jsx";
 import BookDetails from "./components/BookDetails/BookDetails.jsx";
 import ListedBooks from "./components/ListedBooks/ListedBooks.jsx";
 import PagesToRead from "./components/PagesToRead/PagesToRead.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -30,14 +32,7 @@ const router = createBrowserRouter([
         loader: () => fetch("./booksData.json"),
       },
       {
-        path: "/book/:bookId",
-        loader: async ({ params }) => {
-          const response = await fetch(`./booksData.json`);
-          const data = await response.json();
-          return data.find(
-            (book) => book.bookId === parseInt(params.bookId, 10)
-          );
-        },
+        path: "/:bookId",
         element: <BookDetails></BookDetails>,
       },
     ],
