@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { addReadToLs, addWishToLs } from "../../Utilities/LocalStorage";
 
 export default function BookDetails() {
   const book = useLoaderData();
@@ -16,6 +17,13 @@ export default function BookDetails() {
     category,
     publisher,
   } = book;
+
+  const handleRead = (id) => {
+    addReadToLs(id);
+  };
+  const handleWish = (id) => {
+    addWishToLs(id);
+  };
 
   return (
     <div className="hero  w-11/12 mx-auto">
@@ -65,8 +73,18 @@ export default function BookDetails() {
             </p>
           </div>
           <div className="mt-4 space-x-2">
-            <button className="btn btn-outline">Read</button>
-            <button className="btn bg-[#50B1C9] text-white">Wishlist</button>
+            <button
+              onClick={() => handleRead(bookId)}
+              className="btn btn-outline"
+            >
+              Read
+            </button>
+            <button
+              onClick={() => handleWish(bookId)}
+              className="btn bg-[#50B1C9] text-white"
+            >
+              Wishlist
+            </button>
           </div>
         </div>
       </div>
