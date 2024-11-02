@@ -9,10 +9,10 @@ export default function Navbar() {
         <li className="p-2">Home</li>
       </NavLink>
 
-      <NavLink to="/listedBooks">
+      <NavLink to="listedBooks">
         <li className="p-2">Listed Books</li>
       </NavLink>
-      <NavLink to="/read">
+      <NavLink to="read">
         <li className="p-2">Pages to Read</li>
       </NavLink>
     </>

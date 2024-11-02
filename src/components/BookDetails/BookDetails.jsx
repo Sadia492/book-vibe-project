@@ -3,15 +3,16 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { addReadToLs, addWishToLs } from "../../Utilities/LocalStorage";
 
 export default function BookDetails() {
-  const [books, setBooks] = useState([]);
+  // const [books, setBooks] = useState([]);
   const { bookId } = useParams();
   console.log(bookId);
+  const books = useLoaderData();
 
-  useEffect(() => {
-    fetch("./booksData.json")
-      .then((res) => res.json())
-      .then((data) => setBooks(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("../booksData.json")
+  //     .then((res) => res.json())
+  //     .then((data) => setBooks(data));
+  // }, []);
 
   const book = books.find((book) => book.bookId == bookId);
 
